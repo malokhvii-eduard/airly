@@ -29,6 +29,9 @@ const char* UptimePropertyDescription PROGMEM =
 const char* UptimePropertyTitle PROGMEM = "Uptime";
 
 #if defined(THING_HAS_BME280)
+const char* BarometricPressurePropertyDescription PROGMEM =
+    "The pressure within the atmosphere of Earth";
+const char* BarometricPressurePropertyTitle PROGMEM = "Barometric pressure";
 const char* HumidityPropertyDescription PROGMEM =
     "The concentration of water vapor present in the air";
 const char* HumidityPropertyTitle PROGMEM = "Humidity";

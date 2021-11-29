@@ -28,6 +28,7 @@
 #include <Bme280.h>
 
 /* Properties */
+#include <airly/properties/BarometricPressure.h>
 #include <airly/properties/Humidity.h>
 #include <airly/properties/Temperature.h>
 
@@ -53,9 +54,11 @@ static void beginBme280() {
 static bool pollBme280(void *) {
   auto temperature = bme280.getTemperature();
   auto humidity = bme280.getHumidity();
+  auto barometricPressure = bme280.getPressure();
 
   setTemperatureProperty(temperature);
   setHumidityProperty(humidity);
+  setBarometricPressureProperty(barometricPressure);
 
   return true;
 }

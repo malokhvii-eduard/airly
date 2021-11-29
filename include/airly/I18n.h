@@ -20,6 +20,8 @@ extern const char* UptimePropertyDescription;
 extern const char* UptimePropertyTitle;
 
 #if defined(THING_HAS_BME280)
+extern const char* BarometricPressurePropertyDescription;
+extern const char* BarometricPressurePropertyTitle;
 extern const char* HumidityPropertyDescription;
 extern const char* HumidityPropertyTitle;
 extern const char* TemperaturePropertyDescription;
