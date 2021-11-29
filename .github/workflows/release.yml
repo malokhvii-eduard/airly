@@ -11,8 +11,8 @@ on:
       - "v*"
 
 jobs:
-  release:
-    name: 🔖 Release
+  semantic-release:
+    name: 📦🚀 Semantic Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
