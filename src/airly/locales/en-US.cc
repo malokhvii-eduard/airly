@@ -24,14 +24,17 @@ const char* DeviceTitle PROGMEM = "Airly Model B";
 
 namespace i18n {
 
-const char* UptimePropertyTitle PROGMEM = "Uptime";
 const char* UptimePropertyDescription PROGMEM =
     "The time during which the thing is in operation";
+const char* UptimePropertyTitle PROGMEM = "Uptime";
 
 #if defined(THING_HAS_BME280)
-const char* TemperaturePropertyTitle PROGMEM = "Temperature";
+const char* HumidityPropertyDescription PROGMEM =
+    "The concentration of water vapor present in the air";
+const char* HumidityPropertyTitle PROGMEM = "Humidity";
 const char* TemperaturePropertyDescription PROGMEM =
     "A physical quantity that expresses hot and cold";
+const char* TemperaturePropertyTitle PROGMEM = "Temperature";
 #endif
 
 }  // namespace i18n

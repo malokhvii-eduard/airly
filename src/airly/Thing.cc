@@ -28,6 +28,7 @@
 #include <Bme280.h>
 
 /* Properties */
+#include <airly/properties/Humidity.h>
 #include <airly/properties/Temperature.h>
 
 #if defined(THING_HAS_BME280) && !defined(BME280_ADDRESS)
@@ -51,8 +52,10 @@ static void beginBme280() {
 
 static bool pollBme280(void *) {
   auto temperature = bme280.getTemperature();
+  auto humidity = bme280.getHumidity();
 
   setTemperatureProperty(temperature);
+  setHumidityProperty(humidity);
 
   return true;
 }

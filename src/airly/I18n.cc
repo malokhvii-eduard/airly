@@ -8,12 +8,14 @@
 namespace i18n {
 
 const char* DeviceTitle = "";
-const char* UptimePropertyTitle = "";
 const char* UptimePropertyDescription = "";
+const char* UptimePropertyTitle = "";
 
 #if defined(THING_HAS_BME280)
-const char* TemperaturePropertyTitle = "";
+const char* HumidityPropertyDescription = "";
+const char* HumidityPropertyTitle = "";
 const char* TemperaturePropertyDescription = "";
+const char* TemperaturePropertyTitle = "";
 #endif
 
 }  // namespace i18n

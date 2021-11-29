@@ -16,12 +16,14 @@
 namespace i18n {
 
 extern const char* DeviceTitle;
-extern const char* UptimePropertyTitle;
 extern const char* UptimePropertyDescription;
+extern const char* UptimePropertyTitle;
 
 #if defined(THING_HAS_BME280)
-extern const char* TemperaturePropertyTitle;
+extern const char* HumidityPropertyDescription;
+extern const char* HumidityPropertyTitle;
 extern const char* TemperaturePropertyDescription;
+extern const char* TemperaturePropertyTitle;
 #endif
 
 }  // namespace i18n

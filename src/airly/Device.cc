@@ -8,9 +8,10 @@
 
 #if defined(THING_HAS_BME280)
 /* Properties for Bosch Sensortec BME280 */
+#include <airly/properties/Humidity.h>
 #include <airly/properties/Temperature.h>
 
-#define BME280_CAPABILITIES "TemperatureSensor",
+#define BME280_CAPABILITIES "TemperatureSensor", "HumiditySensor",
 #else
 #define BME280_CAPABILITIES
 #endif
@@ -21,6 +22,7 @@ static ThingDevice device("0", i18n::DeviceTitle, deviceCapabilities);
 void describeDevice(WebThingAdapter* adapter) {
 #if defined(THING_HAS_BME280)
   describeTemperatureProperty(&device);
+  describeHumidityProperty(&device);
 #endif
 
   describeUptimeProperty(&device);
