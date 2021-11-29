@@ -28,6 +28,12 @@ const char* UptimePropertyTitle PROGMEM = "Uptime";
 const char* UptimePropertyDescription PROGMEM =
     "The time during which the thing is in operation";
 
+#if defined(THING_HAS_BME280)
+const char* TemperaturePropertyTitle PROGMEM = "Temperature";
+const char* TemperaturePropertyDescription PROGMEM =
+    "A physical quantity that expresses hot and cold";
+#endif
+
 }  // namespace i18n
 
 #endif

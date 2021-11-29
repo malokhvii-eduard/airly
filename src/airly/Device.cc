@@ -6,10 +6,23 @@
 /* Common properties */
 #include <airly/properties/Uptime.h>
 
-static const char* deviceCapabilities[] = {nullptr};
+#if defined(THING_HAS_BME280)
+/* Properties for Bosch Sensortec BME280 */
+#include <airly/properties/Temperature.h>
+
+#define BME280_CAPABILITIES "TemperatureSensor",
+#else
+#define BME280_CAPABILITIES
+#endif
+
+static const char* deviceCapabilities[] = {BME280_CAPABILITIES nullptr};
 static ThingDevice device("0", i18n::DeviceTitle, deviceCapabilities);
 
 void describeDevice(WebThingAdapter* adapter) {
+#if defined(THING_HAS_BME280)
+  describeTemperatureProperty(&device);
+#endif
+
   describeUptimeProperty(&device);
 
   adapter->addDevice(&device);

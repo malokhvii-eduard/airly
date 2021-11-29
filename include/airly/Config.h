@@ -8,4 +8,23 @@
 #define THING_UNDEFINED
 #endif
 
+#if defined(THING_MODEL_B)
+#define THING_HAS_BME280
+#elif defined(THING_MODEL_M)
+#define THING_HAS_BME280
+#define THING_HAS_MHZ19
+#endif
+
+#if defined(THING_HAS_BME280)
+#define THING_USES_I2C
+
+#if !defined(THING_I2C_SDA)
+#define THING_I2C_SDA D2
+#endif
+
+#if !defined(THING_I2C_SCL)
+#define THING_I2C_SCL D1
+#endif
+#endif
+
 #endif  // AIRLY_INCLUDE_AIRLY_CONFIG_H_
