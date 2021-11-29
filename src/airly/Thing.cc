@@ -22,6 +22,9 @@
 // -------------------------------------------------------------------------- //
 // Adapter, common properties
 // -------------------------------------------------------------------------- //
+/* Properties */
+#include <airly/properties/Uptime.h>
+
 #if !defined(SCHEDULER_INTERVAL_UPDATE_PROPERTIES)
 #define SCHEDULER_INTERVAL_UPDATE_PROPERTIES 1000
 #endif
@@ -29,6 +32,8 @@
 static WebThingAdapter *adapter = nullptr;
 
 static bool updateProperties(void *) {
+  updateUptimeProperty();
+
   if (WiFi.status() == WL_CONNECTED) {
     adapter->update();
   }

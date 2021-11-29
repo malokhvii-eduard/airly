@@ -16,6 +16,8 @@
 namespace i18n {
 
 extern const char* DeviceTitle;
+extern const char* UptimePropertyTitle;
+extern const char* UptimePropertyDescription;
 
 }  // namespace i18n
 

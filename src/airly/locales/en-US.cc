@@ -16,3 +16,19 @@ const char* DeviceTitle PROGMEM = "Airly Model B";
 
 #endif
 // -------------------------------------------------------------------------- //
+
+// -------------------------------------------------------------------------- //
+// Translations: en-US, English, United States
+// -------------------------------------------------------------------------- //
+#if defined(LANG_EN_US)
+
+namespace i18n {
+
+const char* UptimePropertyTitle PROGMEM = "Uptime";
+const char* UptimePropertyDescription PROGMEM =
+    "The time during which the thing is in operation";
+
+}  // namespace i18n
+
+#endif
+// -------------------------------------------------------------------------- //
