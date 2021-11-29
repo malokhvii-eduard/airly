@@ -30,7 +30,7 @@
           "assets": [
             "CHANGELOG.md"
           ],
-          "message": "build: release ${nextRelease.version} [skip ci]"
+          "message": "build: release ${nextRelease.version}"
         }
       ]
     ],
