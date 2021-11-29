@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+      - next
+      - beta
+      - alpha
+
+jobs:
+  release:
+    name: 🔖 Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+      - name: Install plugins for semantic-release
+        run: npm install @semantic-release/changelog @semantic-release/git
+      - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: npx semantic-release
