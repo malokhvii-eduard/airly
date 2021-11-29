@@ -26,8 +26,7 @@ void describeTemperatureProperty(ThingDevice* device) {
 }
 
 void setTemperatureProperty(const float temperature) {
-  ThingDataValue value = {.number = temperature};
-  property.setValue(value);
+  property.setValue({.number = temperature});
 }
 
 #endif
