@@ -18,7 +18,17 @@
 #define BME280_CAPABILITIES
 #endif
 
-static const char* deviceCapabilities[] = {BME280_CAPABILITIES nullptr};
+#if defined(THING_HAS_MHZ19)
+/* Properties for Winsen MH-Z19 */
+#include <airly/properties/CarbonDioxide.h>
+
+#define MHZ19_CAPABILITIES "AirQualitySensor",
+#else
+#define MHZ19_CAPABILITIES
+#endif
+
+static const char* deviceCapabilities[] = {
+    BME280_CAPABILITIES MHZ19_CAPABILITIES nullptr};
 static ThingDevice device("0", i18n::DeviceTitle, deviceCapabilities);
 
 void describeDevice(WebThingAdapter* adapter) {
@@ -26,6 +36,10 @@ void describeDevice(WebThingAdapter* adapter) {
   describeTemperatureProperty(&device);
   describeHumidityProperty(&device);
   describeBarometricPressureProperty(&device);
+#endif
+
+#if defined(THING_HAS_MHZ19)
+  describeCarbonDioxideProperty(&device);
 #endif
 
   describeUptimeProperty(&device);

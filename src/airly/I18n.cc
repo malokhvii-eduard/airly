@@ -20,6 +20,11 @@ const char* TemperaturePropertyDescription = "";
 const char* TemperaturePropertyTitle = "";
 #endif
 
+#if defined(THING_HAS_MHZ19)
+const char* CarbonDioxidePropertyDescription = "";
+const char* CarbonDioxidePropertyTitle = "";
+#endif
+
 }  // namespace i18n
 
 #endif

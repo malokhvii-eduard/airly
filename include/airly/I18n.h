@@ -28,6 +28,11 @@ extern const char* TemperaturePropertyDescription;
 extern const char* TemperaturePropertyTitle;
 #endif
 
+#if defined(THING_HAS_MHZ19)
+extern const char* CarbonDioxidePropertyDescription;
+extern const char* CarbonDioxidePropertyTitle;
+#endif
+
 }  // namespace i18n
 
 #endif  // AIRLY_INCLUDE_AIRLY_I18N_H_

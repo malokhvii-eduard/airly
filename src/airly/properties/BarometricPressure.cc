@@ -1,4 +1,4 @@
-#include <airly/properties/Humidity.h>
+#include <airly/properties/BarometricPressure.h>
 
 /* AVR low-level */
 #include <avr/pgmspace.h>
