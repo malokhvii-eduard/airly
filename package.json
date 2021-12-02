@@ -22,7 +22,37 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
-      "@semantic-release/github"
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "airly-model_b-en-US/airly-model_b-en-US.bin",
+              "label": "airly-model_b-en-US.bin"
+            },
+            {
+              "path": "airly-model_m-en-US/airly-model_m-en-US.bin",
+              "label": "airly-model_m-en-US.bin"
+            },
+            {
+              "path": "airly-model_b-ru-RU/airly-model_b-ru-RU.bin",
+              "label": "airly-model_b-ru-RU.bin"
+            },
+            {
+              "path": "airly-model_m-ru-RU/airly-model_m-ru-RU.bin",
+              "label": "airly-model_m-ru-RU.bin"
+            },
+            {
+              "path": "airly-model_b-uk-UA/airly-model_b-uk-UA.bin",
+              "label": "airly-model_b-uk-UA.bin"
+            },
+            {
+              "path": "airly-model_m-uk-UA/airly-model_m-uk-UA.bin",
+              "label": "airly-model_m-uk-UA.bin"
+            }
+          ]
+        }
+      ]
     ],
     "branches": [
       "master",
