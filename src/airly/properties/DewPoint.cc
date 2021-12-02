@@ -1,4 +1,4 @@
-#include <airly/Properties/DewPoint.h>
+#include <airly/properties/DewPoint.h>
 
 /* AVR low-level */
 #include <avr/pgmspace.h>

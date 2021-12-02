@@ -1,4 +1,4 @@
-#include <airly/Properties/Temperature.h>
+#include <airly/properties/Temperature.h>
 
 /* AVR low-level */
 #include <avr/pgmspace.h>

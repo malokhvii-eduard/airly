@@ -1,4 +1,4 @@
-#include <airly/Properties/Uptime.h>
+#include <airly/properties/Uptime.h>
 
 /* AVR low-level */
 #include <avr/pgmspace.h>
