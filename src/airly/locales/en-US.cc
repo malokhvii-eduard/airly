@@ -49,7 +49,7 @@ const char* TemperaturePropertyTitle PROGMEM = "Temperature";
 
 #if defined(THING_HAS_MHZ19)
 const char* CarbonDioxidePropertyDescription PROGMEM =
-    "Concentration of carbon dioxide";
+    "The concentration of carbon dioxide";
 const char* CarbonDioxidePropertyTitle PROGMEM = "Carbon dioxide";
 #endif
 
