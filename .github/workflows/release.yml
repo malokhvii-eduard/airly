@@ -1,6 +1,8 @@
 name: Release
 
 on:
+  push:
+    branches: [beta]
   workflow_run:
     workflows: ["CI"]
     branches:
