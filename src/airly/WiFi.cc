@@ -98,7 +98,7 @@ static String getAccessPointName() {
   macAddress.toUpperCase();
 
   auto ssid = String(i18n::DeviceTitle) + " ";
-  ssid += macAddress.substring(0, 4);
+  ssid += macAddress.substring(macAddress.length() - 4);
   return ssid;
 }
 
