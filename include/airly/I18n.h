@@ -4,11 +4,11 @@
 /* Compilation-time config */
 #include <airly/Config.h>
 
-#if !defined(LANG_EN_US) && !defined(LANG_RU_RU)
+#if !defined(LANG_EN_US) && !defined(LANG_RU_RU) && !defined(LANG_UK_UA)
 #define LANG_UNDEFINED
 #error \
     "Undefined language! Please define language via macro LANG_##_## \
-(Example: LANG_EN_US). Available languages: en-US, ru-RU."
+(Example: LANG_EN_US). Available languages: en-US, ru-RU, uk-UA."
 #else
 #define LANG_DEFINED
 #endif
