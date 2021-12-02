@@ -9,6 +9,7 @@
 #if defined(THING_HAS_BME280)
 /* Properties for Bosch Sensortec BME280 */
 #include <airly/properties/BarometricPressure.h>
+#include <airly/properties/DewPoint.h>
 #include <airly/properties/Humidity.h>
 #include <airly/properties/Temperature.h>
 
@@ -36,6 +37,7 @@ void describeDevice(WebThingAdapter* adapter) {
   describeTemperatureProperty(&device);
   describeHumidityProperty(&device);
   describeBarometricPressureProperty(&device);
+  describeDewPointProperty(&device);
 #endif
 
 #if defined(THING_HAS_MHZ19)

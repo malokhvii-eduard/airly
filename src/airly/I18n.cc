@@ -14,6 +14,8 @@ const char* UptimePropertyTitle = "";
 #if defined(THING_HAS_BME280)
 const char* BarometricPressurePropertyDescription = "";
 const char* BarometricPressurePropertyTitle = "";
+const char* DewPointPropertyDescription = "";
+const char* DewPointPropertyTitle = "";
 const char* HumidityPropertyDescription = "";
 const char* HumidityPropertyTitle = "";
 const char* TemperaturePropertyDescription = "";

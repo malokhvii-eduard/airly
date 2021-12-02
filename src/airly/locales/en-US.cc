@@ -36,6 +36,9 @@ const char* UptimePropertyTitle PROGMEM = "Uptime";
 const char* BarometricPressurePropertyDescription PROGMEM =
     "The pressure within the atmosphere of Earth";
 const char* BarometricPressurePropertyTitle PROGMEM = "Barometric pressure";
+const char* DewPointPropertyDescription PROGMEM =
+    "The temperature at which water vapor begins to condense into water";
+const char* DewPointPropertyTitle PROGMEM = "Dew point";
 const char* HumidityPropertyDescription PROGMEM =
     "The concentration of water vapor present in the air";
 const char* HumidityPropertyTitle PROGMEM = "Humidity";
@@ -45,7 +48,8 @@ const char* TemperaturePropertyTitle PROGMEM = "Temperature";
 #endif
 
 #if defined(THING_HAS_MHZ19)
-const char* CarbonDioxidePropertyDescription = "";
+const char* CarbonDioxidePropertyDescription PROGMEM =
+    "Concentration of carbon dioxide";
 const char* CarbonDioxidePropertyTitle PROGMEM = "Carbon dioxide";
 #endif
 
