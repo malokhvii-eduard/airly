@@ -25,14 +25,18 @@
 #endif
 #endif
 
+#if defined(THING_HAS_MHZ19)
 #if !defined(MHZ19_UART_RX)
 #define MHZ19_UART_RX D5
 #endif
-#endif
 
-#if defined(THING_HAS_MHZ19)
 #if !defined(MHZ19_UART_TX)
 #define MHZ19_UART_TX D6
+#endif
+#endif
+
+#if !defined(OTA_UPDATES_PORT)
+#define OTA_UPDATES_PORT 3000
 #endif
 
 #endif  // AIRLY_INCLUDE_AIRLY_CONFIG_H_

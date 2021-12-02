@@ -1,0 +1,6 @@
+#ifndef AIRLY_INCLUDE_AIRLY_OTA_UPDATE_H_
+#define AIRLY_INCLUDE_AIRLY_OTA_UPDATE_H_
+
+void beginOtaUpdates();
+
+#endif  // AIRLY_INCLUDE_AIRLY_OTA_UPDATE_H_

@@ -22,16 +22,16 @@
 
 /* Utilities */
 #include <airly/Util.h>
+
+/* Subsystems */
+#include <airly/OtaUpdate.h>
 #include <airly/WiFi.h>
 
 // -------------------------------------------------------------------------- //
 // Builtin LED
 // -------------------------------------------------------------------------- //
-
 static void onBuiltinLed() { digitalWrite(LED_BUILTIN, LOW); }
-
 static void offBuiltinLed() { digitalWrite(LED_BUILTIN, HIGH); }
-
 // -------------------------------------------------------------------------- //
 
 // -------------------------------------------------------------------------- //
@@ -232,6 +232,7 @@ void beginThing() {
 #endif
 
   beginScheduler();
+  beginOtaUpdates();
 
 #if !defined(THING_HAS_MHZ19)
   offBuiltinLed();
