@@ -14,12 +14,58 @@ on:
       - completed
 
 jobs:
-  semantic-release:
-    name: 📦🚀 Semantic Release
+  build:
+    name: ⚙️ Build firmware
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        model: [model_b, model_m]
+        locale: [en-US, ru-RU, uk-UA]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Install GCC compiler
+        run: sudo apt-get install build-essential
+      - name: Cache pip
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Cache PlatformIO
+        uses: actions/cache@v2
+        with:
+          path: ~/.platformio
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+      - name: Use Python
+        uses: actions/setup-python@v2
+      - name: Install PlatformIO Core
+        run: pip install -U platformio
+      - name: Set environment variable LANG
+        run: echo LANG=LANG_$(echo ${{ matrix.locale }} | tr a-z A-Z | tr - _) > $GITHUB_ENV
+      - name: Set environment variable PLATFORMIO_BUILD_FLAGS
+        run: echo PLATFORMIO_BUILD_FLAGS=-D$LANG> $GITHUB_ENV
+      - name: Build firmware
+        run: |
+          mkdir -p dist
+          pio run -e ${{ matrix.model }}
+          cp .pio/build/${{ matrix.model }}/firmware.bin dist/airly-${{ matrix.model }}-${{ matrix.locale }}.bin
+      - name: Upload firmware as artificat
+        uses: actions/upload-artifact@v2
+        with:
+          name: airly-${{ matrix.model }}-${{ matrix.locale }}
+          path: dist
+
+  semantic-release:
+    name: 📦🚀 Semantic Release
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Download all firmwares from artifacts
+        uses: actions/download-artifact@v2
       - name: Use Node.js
         uses: actions/setup-node@v2
       - name: Run semantic-release
