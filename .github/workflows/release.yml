@@ -1,14 +1,15 @@
 name: Release
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CI"]
     branches:
       - master
       - next
       - beta
       - alpha
-    tags-ignore:
-      - "v*"
+    types:
+      - completed
 
 jobs:
   semantic-release:
