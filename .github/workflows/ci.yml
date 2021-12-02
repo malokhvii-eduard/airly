@@ -1,11 +1,11 @@
 name: CI
 
 on:
-  # push:
-  #   branches:
-  #     - "*"
-  #   tags-ignore:
-  #     - v*
+  push:
+    branches:
+      - "*"
+    tags-ignore:
+      - v*
   pull_request:
 
 jobs:
