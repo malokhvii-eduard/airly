@@ -15,6 +15,10 @@
 #define THING_HAS_MHZ19
 #endif
 
+#if !defined(SCHEDULER_INTERVAL_UPDATE_PROPERTIES)
+#define SCHEDULER_INTERVAL_UPDATE_PROPERTIES 1000  // 1 second
+#endif
+
 #if defined(THING_HAS_BME280)
 #if !defined(I2C_SDA)
 #define I2C_SDA D2
@@ -22,6 +26,10 @@
 
 #if !defined(THING_I2C_SCL)
 #define I2C_SCL D1
+#endif
+
+#if !defined(SCHEDULER_INTERVAL_POLL_BME280)
+#define SCHEDULER_INTERVAL_POLL_BME280 10000  // 10 seconds
 #endif
 #endif
 
@@ -32,6 +40,10 @@
 
 #if !defined(MHZ19_UART_TX)
 #define MHZ19_UART_TX D6
+#endif
+
+#if !defined(SCHEDULER_INTERVAL_POLL_MHZ19)
+#define SCHEDULER_INTERVAL_POLL_MHZ19 30000  // 30 seconds
 #endif
 #endif
 

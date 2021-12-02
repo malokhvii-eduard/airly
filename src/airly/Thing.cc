@@ -52,10 +52,6 @@ static void offBuiltinLed() { digitalWrite(LED_BUILTIN, HIGH); }
 #define BME280_ADDRESS Bme280TwoWireAddress::Primary
 #endif
 
-#if !defined(SCHEDULER_INTERVAL_POLL_BME280)
-#define SCHEDULER_INTERVAL_POLL_BME280 10000  // 10 seconds
-#endif
-
 static Bme280TwoWire bme280;
 
 static void beginBme280() {
@@ -94,10 +90,6 @@ static bool pollBme280(void *) {
 
 /* Properties */
 #include <airly/properties/CarbonDioxide.h>
-
-#if !defined(SCHEDULER_INTERVAL_POLL_MHZ19)
-#define SCHEDULER_INTERVAL_POLL_MHZ19 30000  // 30 seconds
-#endif
 
 #define MHZ19_UART_BAUDRATE 9600  // kbps
 
@@ -139,10 +131,6 @@ static bool pollMhz19(void *) {
 // -------------------------------------------------------------------------- //
 /* Properties */
 #include <airly/properties/Uptime.h>
-
-#if !defined(SCHEDULER_INTERVAL_UPDATE_PROPERTIES)
-#define SCHEDULER_INTERVAL_UPDATE_PROPERTIES 1000  // 1 second
-#endif
 
 static WebThingAdapter *adapter = nullptr;
 
