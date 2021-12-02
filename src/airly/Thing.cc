@@ -14,36 +14,23 @@
 /* Scheduler */
 #include <arduino-timer.h>
 
-/* Compilation-time config */
-#include <airly/Config.h>
+/* Preprocessor-based localization */
+#include <airly/I18n.h>
 
 /* Device */
 #include <airly/Device.h>
 
+/* Utilities */
+#include <airly/Util.h>
+#include <airly/WiFi.h>
+
 // -------------------------------------------------------------------------- //
-// Utilities
+// Builtin LED
 // -------------------------------------------------------------------------- //
 
 static void onBuiltinLed() { digitalWrite(LED_BUILTIN, LOW); }
 
 static void offBuiltinLed() { digitalWrite(LED_BUILTIN, HIGH); }
-
-static String getThingHostname() {
-  auto macAddress = WiFi.macAddress();
-  macAddress.replace(":", "");
-
-  auto identity = String("airly-");
-  identity += macAddress;
-  identity.toLowerCase();
-  return identity;
-}
-
-static String getThingIdentity() {
-  auto macAddress = WiFi.macAddress();
-  macAddress.replace(":", "");
-  macAddress.toLowerCase();
-  return macAddress;
-}
 
 // -------------------------------------------------------------------------- //
 
@@ -236,28 +223,16 @@ static void beginScheduler() {
 // -------------------------------------------------------------------------- //
 // Thing
 // -------------------------------------------------------------------------- //
-#if !defined(UART_BAUDRATE)
-#define UART_BAUDRATE 9600  // kbps
-#endif
+static String getThingHostname() {
+  auto identity = String("airly-");
+  identity += getMacAddressWithoutColon();
+  identity.toLowerCase();
+  return identity;
+}
+
+static String getThingIdentity() { return getMacAddressWithoutColon(); }
 
 static void beginBuiltinLed() { pinMode(LED_BUILTIN, OUTPUT); }
-
-static void beginWiFi() {
-  WiFi.mode(WIFI_STA);
-  WiFi.persistent(true);
-  WiFi.setAutoReconnect(true);
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    // TODO: Add captive portal
-    delay(500);  // 500 milliseconds
-  }
-}
-
-static void beginSerial() {
-  Serial.begin(UART_BAUDRATE);
-  Serial.println();
-}
 
 static void beginTwoWire() { Wire.begin(I2C_SDA, I2C_SCL); }
 
@@ -265,16 +240,15 @@ void beginThing() {
   beginBuiltinLed();
   onBuiltinLed();
 
+  beginWiFi();
+
   auto thingHostname = getThingHostname();
   auto thingIdentity = getThingIdentity();
   WiFi.hostname(thingHostname);
-  beginWiFi();
 
   adapter = new WebThingAdapter(thingIdentity, WiFi.localIP());
   describeDevice(adapter);
   adapter->begin();
-
-  beginSerial();  // Skip debug messages from WebThings framework
 
 #if defined(THING_HAS_BME280)
   beginTwoWire();
@@ -293,5 +267,4 @@ void beginThing() {
 }
 
 void updateThing() { scheduler.tick(); }
-// --------------------------------------------------------------------------
-// //
+// -------------------------------------------------------------------------- //

@@ -1,0 +1,6 @@
+#ifndef AIRLY_INCLUDE_AIRLY_WI_FI_H_
+#define AIRLY_INCLUDE_AIRLY_WI_FI_H_
+
+void beginWiFi();
+
+#endif  // AIRLY_INCLUDE_AIRLY_WI_FI_H_
