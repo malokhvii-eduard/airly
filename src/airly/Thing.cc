@@ -148,6 +148,8 @@ static bool updateProperties(void *) {
 
   if (WiFi.status() == WL_CONNECTED) {
     adapter->update();
+  } else {
+    WiFi.reconnect();
   }
 
   return true;
