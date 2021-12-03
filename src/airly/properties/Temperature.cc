@@ -11,7 +11,7 @@
 // -------------------------------------------------------------------------- //
 #if defined(THING_HAS_BME280)
 
-static const char* propertyId PROGMEM = "temeperature";
+static const char* propertyId PROGMEM = "temperature";
 static ThingProperty property(propertyId, i18n::TemperaturePropertyDescription,
                               NUMBER, "TemperatureProperty");
 
