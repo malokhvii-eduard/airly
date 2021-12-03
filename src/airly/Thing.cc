@@ -54,26 +54,62 @@ static void offBuiltinLed() { digitalWrite(LED_BUILTIN, HIGH); }
 
 static Bme280TwoWire bme280;
 
+static void beginTwoWire() { Wire.begin(I2C_SDA, I2C_SCL); }
+
 static void beginBme280() {
   bme280.begin(BME280_ADDRESS);
-  bme280.setSettings(Bme280Settings::indoor());
+
+  auto settings = Bme280Settings::indoor();
+
+#if !defined(THING_HAS_TEMPERATURE_PROPERTY) && \
+    !defined(THING_HAS_DEW_POINT_PROPERTY)
+  settings.temperatureOversampling = Bme280Oversampling::Off;
+#endif
+
+#if !defined(THING_HAS_HUMIDITY_PROPERTY) && \
+    !defined(THING_HAS_DEW_POINT_PROPERTY)
+  settings.humidityOversampling = Bme280Oversampling::Off;
+#endif
+
+#if !defined(THING_HAS_BAROMETRIC_PRESSURE_PROPERTY)
+  settings.pressureOversampling = Bme280Oversampling::Off;
+#endif
+
+  bme280.setSettings(settings);
 
   delay(1000);  // 1 second
 }
 
 static bool pollBme280(void *) {
+#if defined(THING_HAS_TEMPERATURE_PROPERTY) || \
+    defined(THING_HAS_DEW_POINT_PROPERTY)
   auto temperature = bme280.getTemperature();
+#endif
+
+#if defined(THING_HAS_HUMIDITY_PROPERTY) || \
+    defined(THING_HAS_DEW_POINT_PROPERTY)
   auto humidity = bme280.getHumidity();
-  auto barometricPressure = bme280.getPressure();
-  auto dewPoint = calculateDewPoint(temperature, humidity);
+#endif
 
+#if defined(THING_HAS_TEMPERATURE_PROPERTY)
   setTemperatureProperty(temperature);
-  setHumidityProperty(humidity);
-  setBarometricPressureProperty(barometricPressure);
+#endif
 
+#if defined(THING_HAS_HUMIDITY_PROPERTY)
+  setHumidityProperty(humidity);
+#endif
+
+#if defined(THING_HAS_BAROMETRIC_PRESSURE_PROPERTY)
+  auto barometricPressure = bme280.getPressure();
+  setBarometricPressureProperty(barometricPressure);
+#endif
+
+#if defined(THING_HAS_DEW_POINT_PROPERTY)
+  auto dewPoint = calculateDewPoint(temperature, humidity);
   if (!isnan(dewPoint)) {
     setDewPointProperty(dewPoint);
   }
+#endif
 
   return true;
 }
@@ -89,7 +125,9 @@ static bool pollBme280(void *) {
 #include <Mhz19.h>
 
 /* Properties */
+#if defined(THING_HAS_CARBON_DIOXIDE_PROPERTY)
 #include <airly/properties/CarbonDioxide.h>
+#endif
 
 #define MHZ19_UART_BAUDRATE 9600  // kbps
 
@@ -113,12 +151,16 @@ static void beginMhz19() {
 }
 
 static bool pollMhz19(void *) {
+#if defined(THING_HAS_CARBON_DIOXIDE_PROPERTY)
   if (isMhz19PreheatingDone) {
     auto carbonDioxide = mhz19.getCarbonDioxide();
-    if (carbonDioxide < 0) carbonDioxide = 0;
+    if (carbonDioxide < 0) {
+      carbonDioxide = 0;
+    }
 
     setCarbonDioxideProperty(carbonDioxide);
   }
+#endif
 
   return true;
 }
@@ -129,14 +171,9 @@ static bool pollMhz19(void *) {
 // -------------------------------------------------------------------------- //
 // Adapter, common properties
 // -------------------------------------------------------------------------- //
-/* Properties */
-#include <airly/properties/Uptime.h>
-
 static WebThingAdapter *adapter = nullptr;
 
 static bool updateProperties(void *) {
-  updateUptimeProperty();
-
 #if defined(THING_HAS_MHZ19)
   if (!isMhz19PreheatingDone) {
     if (mhz19.isReady()) {
@@ -148,7 +185,9 @@ static bool updateProperties(void *) {
 
   if (WiFi.status() == WL_CONNECTED) {
     adapter->update();
-  } else {
+  }
+
+  if (WiFi.status() == WL_DISCONNECTED) {
     WiFi.reconnect();
   }
 
@@ -195,8 +234,6 @@ static String getThingHostname() {
 static String getThingIdentity() { return getMacAddressWithoutColon(); }
 
 static void beginBuiltinLed() { pinMode(LED_BUILTIN, OUTPUT); }
-
-static void beginTwoWire() { Wire.begin(I2C_SDA, I2C_SCL); }
 
 void beginThing() {
   beginBuiltinLed();

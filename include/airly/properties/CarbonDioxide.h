@@ -7,7 +7,9 @@
 /* WebThings framework */
 #include <Thing.h>
 
+#if defined(THING_HAS_CARBON_DIOXIDE_PROPERTY)
 void describeCarbonDioxideProperty(ThingDevice* device);
 void setCarbonDioxideProperty(const unsigned short carbonDioxide);
+#endif
 
 #endif  // AIRLY_INCLUDE_AIRLY_PROPERTIES_CARBON_DIOXIDE_H_

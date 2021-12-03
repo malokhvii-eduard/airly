@@ -9,7 +9,7 @@
 // -------------------------------------------------------------------------- //
 // Property: Temperature (°C)
 // -------------------------------------------------------------------------- //
-#if defined(THING_HAS_BME280)
+#if defined(THING_HAS_TEMPERATURE_PROPERTY)
 
 static const char* propertyId PROGMEM = "temperature";
 static ThingProperty property(propertyId, i18n::TemperaturePropertyDescription,

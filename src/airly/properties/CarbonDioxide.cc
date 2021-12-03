@@ -9,7 +9,7 @@
 // -------------------------------------------------------------------------- //
 // Property: Carbon dioxide (ppm)
 // -------------------------------------------------------------------------- //
-#if defined(THING_HAS_MHZ19)
+#if defined(THING_HAS_CARBON_DIOXIDE_PROPERTY)
 
 static const char* propertyId PROGMEM = "carbonDioxide";
 static ThingProperty property(propertyId,

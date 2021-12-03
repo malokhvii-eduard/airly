@@ -7,7 +7,9 @@
 /* WebThings framework */
 #include <Thing.h>
 
+#if defined(THING_HAS_BAROMETRIC_PRESSURE_PROPERTY)
 void describeBarometricPressureProperty(ThingDevice* device);
 void setBarometricPressureProperty(const float barometricPressure);
+#endif
 
 #endif  // AIRLY_INCLUDE_AIRLY_PROPERTIES_BAROMETRIC_PRESSURE_H_

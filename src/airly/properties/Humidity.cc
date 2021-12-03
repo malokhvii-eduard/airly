@@ -9,7 +9,7 @@
 // -------------------------------------------------------------------------- //
 // Property: Humidity, %
 // -------------------------------------------------------------------------- //
-#if defined(THING_HAS_BME280)
+#if defined(THING_HAS_HUMIDITY_PROPERTY)
 
 static const char* propertyId PROGMEM = "humidity";
 static ThingProperty property(propertyId, i18n::HumidityPropertyDescription,

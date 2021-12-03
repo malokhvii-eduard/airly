@@ -9,7 +9,7 @@
 // -------------------------------------------------------------------------- //
 // Property: Dew point (°C)
 // -------------------------------------------------------------------------- //
-#if defined(THING_HAS_BME280)
+#if defined(THING_HAS_DEW_POINT_PROPERTY)
 
 static const char* propertyId PROGMEM = "dewPoint";
 static ThingProperty property(propertyId, i18n::DewPointPropertyDescription,

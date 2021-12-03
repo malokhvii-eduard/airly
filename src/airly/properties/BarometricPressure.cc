@@ -9,7 +9,7 @@
 // -------------------------------------------------------------------------- //
 // Property: Barometric pressure (hPa)
 // -------------------------------------------------------------------------- //
-#if defined(THING_HAS_BME280)
+#if defined(THING_HAS_BAROMETRIC_PRESSURE_PROPERTY)
 
 static const char* propertyId PROGMEM = "barometricPressure";
 static ThingProperty property(propertyId,

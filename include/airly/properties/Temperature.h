@@ -7,7 +7,9 @@
 /* WebThings framework */
 #include <Thing.h>
 
+#if defined(THING_HAS_TEMPERATURE_PROPERTY)
 void describeTemperatureProperty(ThingDevice* device);
 void setTemperatureProperty(const float temperature);
+#endif
 
 #endif  // AIRLY_INCLUDE_AIRLY_PROPERTIES_TEMPERATURE_H_

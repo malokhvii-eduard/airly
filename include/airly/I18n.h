@@ -16,21 +16,28 @@
 namespace i18n {
 
 extern const char* DeviceTitle;
-extern const char* UptimePropertyDescription;
-extern const char* UptimePropertyTitle;
 
-#if defined(THING_HAS_BME280)
-extern const char* BarometricPressurePropertyDescription;
-extern const char* BarometricPressurePropertyTitle;
-extern const char* DewPointPropertyDescription;
-extern const char* DewPointPropertyTitle;
-extern const char* HumidityPropertyDescription;
-extern const char* HumidityPropertyTitle;
+#if defined(THING_HAS_TEMPERATURE_PROPERTY)
 extern const char* TemperaturePropertyDescription;
 extern const char* TemperaturePropertyTitle;
 #endif
 
-#if defined(THING_HAS_MHZ19)
+#if defined(THING_HAS_HUMIDITY_PROPERTY)
+extern const char* HumidityPropertyDescription;
+extern const char* HumidityPropertyTitle;
+#endif
+
+#if defined(THING_HAS_BAROMETRIC_PRESSURE_PROPERTY)
+extern const char* BarometricPressurePropertyDescription;
+extern const char* BarometricPressurePropertyTitle;
+#endif
+
+#if defined(THING_HAS_DEW_POINT_PROPERTY)
+extern const char* DewPointPropertyDescription;
+extern const char* DewPointPropertyTitle;
+#endif
+
+#if defined(THING_HAS_CARBON_DIOXIDE_PROPERTY)
 extern const char* CarbonDioxidePropertyDescription;
 extern const char* CarbonDioxidePropertyTitle;
 #endif

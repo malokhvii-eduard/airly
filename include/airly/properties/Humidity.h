@@ -7,7 +7,9 @@
 /* WebThings framework */
 #include <Thing.h>
 
+#if defined(THING_HAS_HUMIDITY_PROPERTY)
 void describeHumidityProperty(ThingDevice* device);
 void setHumidityProperty(const float humidity);
+#endif
 
 #endif  // AIRLY_INCLUDE_AIRLY_PROPERTIES_HUMIDITY_H_
