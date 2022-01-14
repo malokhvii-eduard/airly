@@ -7,7 +7,9 @@
     A collection of tiny and ultra-cheap web things for monitoring air quality.
     The devices measure: temperature, humidity, barometric pressure, the
     concentration of carbon dioxide, dew point. The devices easily integrate
-    into the Web of Things ecosystem and can be used indoor or outdoor.
+    into the
+    <a href="https://iot.mozilla.org/" aria-label="WoT">Web of Things</a>
+    ecosystem and can be used indoor or outdoor.
   </p>
 
   <p id="shields" align="center" markdown="1">
@@ -27,7 +29,19 @@
   </p>
 </div>
 
-:construction: Coming soon...
+## 🎉 Features
+
+- 🧬 Multiple models ([Model B, Model M](include/airly/Config.h))
+- 🤑 Ulta-cheap (~4$ or ~24$)
+- 💧💥 [Temperature](src/airly/properties/Temperature.cc),
+[humidity](src/airly/properties/Humidity.cc),
+[barometric pressure](src/airly/properties/BarometricPressure.cc),
+[the concentration of carbon dioxide](src/airly/properties/CarbonDioxide.cc),
+[dew point](src/airly/properties/DewPoint.cc)
+- 🧰 [Configuration portal][github-wifi-manager]
+- 🌍 [Multi-language](include/airly/I18n.h)
+- 📦🚀 [Over-the-Air updates][github-elegant-ota]
+- 🤝 Compatible with [Web of Things][web-things]
 
 ## 🛠️ Tech Stack
 
@@ -83,6 +97,7 @@ for more information.
 [github-arduino]: https://github.com/arduino
 [github-commitizen]: https://github.com/commitizen/cz-cli
 [github-commitlint]: https://github.com/conventional-changelog/commitlint
+[github-elegant-ota]: https://github.com/ayushsharma82/ElegantOTA
 [github-husky]: https://github.com/typicode/husky
 [github-markdownlint]: https://github.com/DavidAnson/markdownlint
 [github-npm]: https://github.com/npm/cli
@@ -90,6 +105,7 @@ for more information.
 [github-prettier]: https://github.com/prettier/prettier
 [github-semantic-release]: https://github.com/semantic-release/semantic-release
 [github-webthings-arduino]: https://github.com/WebThingsIO/webthing-arduino
+[github-wifi-manager]: https://github.com/tzapu/WiFiManager
 [github]: https://github.com
 
 <!-- Other links -->
@@ -99,5 +115,6 @@ for more information.
 [git-scm]: https://git-scm.com
 [google-cppguide]: https://google.github.io/styleguide/cppguide.html
 [shields]: https://shields.io
+[web-things]: https://iot.mozilla.org/
 [wemos-d1]: https://www.wemos.cc/en/latest/d1/d1_mini.html
 [winsen-mhz19-datasheet]: https://www.winsen-sensor.com/d/files/infrared-gas-sensor/mh-z19b-co2-ver1_0.pdf
