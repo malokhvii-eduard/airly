@@ -94,6 +94,12 @@ appreciated**.
 4. Push to the *Branch* (`git push origin feature/awesome-feature`)
 5. Open a *Pull Request*
 
+## 🙏 Special thanks
+
+- [George Molchanov](mailto:xone@ukr.net) - Academic advisor
+- [Roman Verbenski](https://twitter.com/rv_verb) - 3D designer created a
+universal plastic case for all models
+
 ## 💖 Like this project?
 
 Leave a ⭐ if you think this project is cool or useful for you.
