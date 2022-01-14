@@ -1,4 +1,31 @@
+<!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD041 -->
+
+<div align="center">
+  <h2 align="center">💨 Airly</h2>
+  <p align="center">
+    A collection of tiny and ultra-cheap web things for monitoring air quality.
+    The devices measure: temperature, humidity, barometric pressure, the
+    concentration of carbon dioxide, dew point. The devices easily integrate
+    into the Web of Things ecosystem and can be used indoor or outdoor.
+  </p>
+
+  <p id="shields" align="center" markdown="1">
+
+[![License](https://img.shields.io/badge/license-MIT-3178C6?style=flat)](LICENSE)
+[![Husky](https://img.shields.io/badge/husky-enabled-brightgreen?style=flat)][github-husky]
+[![Commitizen](https://img.shields.io/badge/commitizen-friendly-brightgreen)][github-commitizen]
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)][github-semantic-release]
+[![Style Guide](https://img.shields.io/badge/code%20style-~google-4285F4?style=flat)][google-cppguide]
+![clang-format](https://img.shields.io/badge/formatter-clang--format-262D3A?style=flat)
+[![markdownlint](https://img.shields.io/badge/linter-markdownlint-000?style=flat)][github-markdownlint]
+[![commitlint](https://img.shields.io/badge/linter-commitlint-F7B93E?style=flat)][github-commitlint]
+[![Tested on Wemos D1](https://img.shields.io/badge/tested%20on-wemos%20d1-E7352C)][wemos-d1]
+![CI Workflow](https://github.com/malokhvii-eduard/airly/actions/workflows/ci.yml/badge.svg)
+[![Release Workflow](https://github.com/malokhvii-eduard/airly/actions/workflows/release.yml/badge.svg)](https://github.com/malokhvii-eduard/airly/releases)
+
+  </p>
+</div>
 
 :construction: Coming soon...
 
@@ -17,8 +44,8 @@
 [![markdownlint](https://img.shields.io/badge/markdownlint-000?logo=markdown&logoColor=fff&style=flat)][github-markdownlint]
 [![commitlint](https://img.shields.io/badge/commitlint-F7B93E?logo=c&logoColor=000&style=flat)][github-commitlint]
 [![semantic-release](https://img.shields.io/badge/semantic--release-494949?logo=semanticrelease&logoColor=fff&style=flat)][github-semantic-release]
-![ESP8266](https://img.shields.io/badge/ESP8266-E7352C?logo=espressif&logoColor=fff&style=flat)
-![WeMos D1](https://img.shields.io/badge/WeMos%20D1-2088FF?logo=espressif&logoColor=fff&style=flat)
+[![ESP8266](https://img.shields.io/badge/ESP8266-E7352C?logo=espressif&logoColor=fff&style=flat)][esp8266]
+[![WeMos D1](https://img.shields.io/badge/WeMos%20D1-2088FF?logo=espressif&logoColor=fff&style=flat)][wemos-d1]
 [![BME280](https://img.shields.io/badge/BME280-EA0016?logo=bosch&logoColor=fff&style=flat)][bosch-sensortec-bme280-datasheet]
 [![MH-Z19](https://img.shields.io/badge/MH--Z19-2088FF?logo=weasyl&logoColor=fff&style=flat)][winsen-mhz19-datasheet]
 [![Shields.io](https://img.shields.io/badge/Shields.io-000?logo=shieldsdotio&logoColor=fff&style=flat)][shields]
@@ -54,7 +81,9 @@ for more information.
 <!-- Github links -->
 [github-actions]: https://docs.github.com/en/actions
 [github-arduino]: https://github.com/arduino
+[github-commitizen]: https://github.com/commitizen/cz-cli
 [github-commitlint]: https://github.com/conventional-changelog/commitlint
+[github-husky]: https://github.com/typicode/husky
 [github-markdownlint]: https://github.com/DavidAnson/markdownlint
 [github-npm]: https://github.com/npm/cli
 [github-platformio]: https://github.com/platformio
@@ -66,7 +95,9 @@ for more information.
 <!-- Other links -->
 [bosch-sensortec-bme280-datasheet]: https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf
 [editorconfig]: https://editorconfig.org
+[esp8266]: https://www.espressif.com/en/products/socs/esp8266
 [git-scm]: https://git-scm.com
+[google-cppguide]: https://google.github.io/styleguide/cppguide.html
 [shields]: https://shields.io
 [wemos-d1]: https://www.wemos.cc/en/latest/d1/d1_mini.html
 [winsen-mhz19-datasheet]: https://www.winsen-sensor.com/d/files/infrared-gas-sensor/mh-z19b-co2-ver1_0.pdf
