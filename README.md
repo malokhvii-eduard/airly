@@ -27,6 +27,12 @@
 [![Release Workflow](https://github.com/malokhvii-eduard/airly/actions/workflows/release.yml/badge.svg)](https://github.com/malokhvii-eduard/airly/releases)
 
   </p>
+
+  <div id="demo" align="center" markdown="1">
+
+![Demo](docs/img/demo.gif)
+
+  </div>
 </div>
 
 ## 🎉 Features
