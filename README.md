@@ -43,6 +43,12 @@
 - 📦🚀 [Over-the-Air updates][github-elegant-ota]
 - 🤝 Compatible with [Web of Things][web-things]
 
+## 🌻 Motivation
+
+Final project for my Master’s degree 🎓. Also, the project uses some work and
+experience from my Bachelor's degree final project on the same topic 🧐. Nice
+non-commercial DIY project for fun 🙃.
+
 ## 🛠️ Tech Stack
 
 <!-- markdownlint-disable MD013 -->
