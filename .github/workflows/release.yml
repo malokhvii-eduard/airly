@@ -39,7 +39,7 @@ jobs:
       - name: Use Python
         uses: actions/setup-python@v2
       - name: Install PlatformIO Core
-        run: pip install -U platformio
+        run: pip install -U platformio==6.1.3
       - name: Set environment variable LANG
         run: echo LANG=LANG_$(echo ${{ matrix.locale }} | tr a-z A-Z | tr - _) > $GITHUB_ENV
       - name: Set environment variable PLATFORMIO_BUILD_FLAGS
